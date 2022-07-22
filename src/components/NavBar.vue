@@ -82,7 +82,7 @@ ul {
   padding: 3em 0;
   color: white;
   animation: myAnim 1s ease 0s 1 normal forwards;
-  z-index: 1;
+  z-index: 2;
 }
 ul a {
   color: white;
