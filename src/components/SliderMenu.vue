@@ -178,7 +178,7 @@ export default {
 .swipe-container {
   padding: 0.5em 1.2em;
   background-repeat: no-repeat;
-  border-radius: 30px;
+  border-radius: 20px;
   position: relative;
   width: 100%;
   background-size: cover;
@@ -227,7 +227,7 @@ export default {
   height: 100%;
   background-color: #000;
   opacity: 0.5;
-  border-radius: 30px;
+  border-radius: 20px;
 }
 
 .swipe-container::after {
