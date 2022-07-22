@@ -43,13 +43,13 @@
             <h2>Mission impossible</h2>
           </div>
           <div class="post-author-section">
-            <div class="play">
+            <div class="play-text">
               <i class="fas fa-video" style="color: white"></i> Sci-fi
             </div>
-            <div class="bookmark">
+            <div class="bookmark-text">
               <i class="fas fa-clock" style="color: white"></i> 2 hours 30 mins
             </div>
-            <div class="play">
+            <div class="play-text">
               <i class="fas far fa-calendar-alt" style="color: white"></i> 2020
             </div>
           </div>
@@ -88,13 +88,13 @@
             <h2>Alchemy Of Souls</h2>
           </div>
           <div class="post-author-section">
-            <div class="play">
+            <div class="play-text">
               <i class="fas fa-video" style="color: white"></i> Sci-fi
             </div>
-            <div class="bookmark">
+            <div class="bookmark-text">
               <i class="fas fa-clock" style="color: white"></i> 2 hours 30 mins
             </div>
-            <div class="play">
+            <div class="play-text">
               <i class="fas far fa-calendar-alt" style="color: white"></i> 2020
             </div>
           </div>
@@ -133,13 +133,13 @@
             <h2>The Flash</h2>
           </div>
           <div class="post-author-section">
-            <div class="play">
+            <div class="play-text">
               <i class="fas fa-video" style="color: white"></i> Sci-fi
             </div>
-            <div class="bookmark">
+            <div class="bookmark-text">
               <i class="fas fa-clock" style="color: white"></i> 2 hours 30 mins
             </div>
-            <div class="play">
+            <div class="play-text">
               <i class="fas far fa-calendar-alt" style="color: white"></i> 2020
             </div>
           </div>
@@ -252,5 +252,9 @@ export default {
     opacity: 0;
     transform: scale(2.2);
   }
+}
+.play-text,
+.bookmark-text {
+  font-size: 13px;
 }
 </style>

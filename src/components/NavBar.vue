@@ -51,7 +51,7 @@ export default {
 }
 header {
   background-color: black;
-  z-index: 9999;
+  z-index: 3;
 }
 h2 {
   color: white;
