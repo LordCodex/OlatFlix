@@ -10,12 +10,10 @@
       @swiper="onSwiper"
       @slideChange="onSlideChange"
     >
-      <swiper-slide>
+      <swiper-slide v-for="movie of movies" :key="movie.id">
         <div
           class="swipe-container"
-          style="
-            background-image: url('https://www.movieguide.org/wp-content/uploads/2012/08/10336.jpg');
-          "
+          :style="{ backgroundImage: `url(${movie.img})` }"
         >
           <div class="swipe-icons">
             <div class="play">
@@ -34,113 +32,28 @@
           <div class="category-btn">
             <a
               class="post-category"
-              style="background-color: #e42f08"
+              :style="{ backgroundColor: movie.color }"
               href="catagory.html"
-              >American</a
+              >{{ movie.category }}</a
             >
           </div>
           <div class="post-title">
-            <h2>Mission impossible</h2>
+            <h2>{{ movie.title }}</h2>
           </div>
           <div class="post-author-section">
             <div class="play-text">
-              <i class="fas fa-video" style="color: white"></i> Sci-fi
+              <i class="fas fa-video" style="color: white"></i> {{ movie.type }}
             </div>
             <div class="bookmark-text">
-              <i class="fas fa-clock" style="color: white"></i> 2 hours 30 mins
+              <i class="fas fa-clock" style="color: white"></i> {{ movie.time }}
             </div>
             <div class="play-text">
-              <i class="fas far fa-calendar-alt" style="color: white"></i> 2020
-            </div>
-          </div>
-          <div class="color-overlay"></div></div
-      ></swiper-slide>
-      <swiper-slide>
-        <div
-          class="swipe-container"
-          style="
-            background-image: url('https://6.viki.io/image/1cafa0afb4ae4c97984fb9a2c4ea8541/dummy.jpeg?s=900x600&e=t');
-          "
-        >
-          <div class="swipe-icons">
-            <div class="play">
-              <i
-                class="fas fa-play-circle"
-                style="color: red; font-size: 25px"
-              ></i>
-            </div>
-            <div class="bookmark">
-              <i
-                class="far fa-bookmark"
-                style="color: white; font-size: 25px"
-              ></i>
-            </div>
-          </div>
-          <div class="category-btn">
-            <a
-              class="post-category"
-              style="background-color: green"
-              href="catagory.html"
-              >Korean</a
-            >
-          </div>
-          <div class="post-title">
-            <h2>Alchemy Of Souls</h2>
-          </div>
-          <div class="post-author-section">
-            <div class="play-text">
-              <i class="fas fa-video" style="color: white"></i> Sci-fi
-            </div>
-            <div class="bookmark-text">
-              <i class="fas fa-clock" style="color: white"></i> 2 hours 30 mins
+              <i class="fas far fa-calendar-alt" style="color: white"></i>
+              {{ movie.year }}
             </div>
             <div class="play-text">
-              <i class="fas far fa-calendar-alt" style="color: white"></i> 2020
-            </div>
-          </div>
-          <div class="color-overlay"></div></div
-      ></swiper-slide>
-      <swiper-slide>
-        <div
-          class="swipe-container"
-          style="
-            background-image: url('https://static.next-episode.net/tv-shows-images/huge/the-flash.jpg');
-          "
-        >
-          <div class="swipe-icons">
-            <div class="play">
-              <i
-                class="fas fa-play-circle"
-                style="color: red; font-size: 25px"
-              ></i>
-            </div>
-            <div class="bookmark">
-              <i
-                class="far fa-bookmark"
-                style="color: white; font-size: 25px"
-              ></i>
-            </div>
-          </div>
-          <div class="category-btn">
-            <a
-              class="post-category"
-              style="background-color: red"
-              href="catagory.html"
-              >American</a
-            >
-          </div>
-          <div class="post-title">
-            <h2>The Flash</h2>
-          </div>
-          <div class="post-author-section">
-            <div class="play-text">
-              <i class="fas fa-video" style="color: white"></i> Sci-fi
-            </div>
-            <div class="bookmark-text">
-              <i class="fas fa-clock" style="color: white"></i> 2 hours 30 mins
-            </div>
-            <div class="play-text">
-              <i class="fas far fa-calendar-alt" style="color: white"></i> 2020
+              <i class="fas far fa-user" style="color: white"></i>
+              {{ movie.age }} +
             </div>
           </div>
           <div class="color-overlay"></div></div
@@ -150,7 +63,9 @@
 </template>
 
 <script>
+import axios from "axios";
 // Import Swiper Vue.js components
+
 import { Swiper, SwiperSlide } from "swiper/vue";
 import SwiperCore, { Autoplay } from "swiper/core";
 SwiperCore.use([Autoplay]);
@@ -162,6 +77,24 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+  },
+  data() {
+    return {
+      movies: [],
+      errors: [],
+    };
+  },
+
+  // Fetches movies when the component is created.
+  async created() {
+    try {
+      const response = await axios.get(
+        `https://olatflix.funaabite.xyz/api/v1/featured/yes`
+      );
+      this.movies = response.data;
+    } catch (e) {
+      this.errors.push(e);
+    }
   },
 };
 </script>
