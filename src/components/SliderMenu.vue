@@ -53,7 +53,7 @@
             </div>
             <div class="play-text">
               <i class="fas far fa-user" style="color: white"></i>
-              {{ movie.age }} +
+              {{ movie.age }} <b>+</b>
             </div>
           </div>
           <div class="color-overlay"></div></div
@@ -146,7 +146,7 @@ export default {
 .post-author-section {
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 0.7em;
   color: #ffffff;
   padding: 1em 0;
   z-index: 1;
