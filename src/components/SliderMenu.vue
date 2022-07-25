@@ -11,52 +11,60 @@
       @slideChange="onSlideChange"
     >
       <swiper-slide v-for="movie of movies" :key="movie.id">
-        <div
-          class="swipe-container"
-          :style="{ backgroundImage: `url(${movie.img})` }"
+        <router-link
+          :to="{
+            name: 'Play Movie',
+            params: { id: movie.id, username: 'eduardo' },
+          }"
         >
-          <div class="swipe-icons">
-            <div class="play">
-              <i
-                class="fas fa-play-circle"
-                style="color: red; font-size: 25px"
-              ></i>
+          <div
+            class="swipe-container"
+            :style="{ backgroundImage: `url(${movie.img})` }"
+          >
+            <div class="swipe-icons">
+              <div class="play">
+                <i
+                  class="fas fa-play-circle"
+                  style="color: red; font-size: 25px"
+                ></i>
+              </div>
+              <div class="bookmark">
+                <i
+                  class="far fa-bookmark"
+                  style="color: white; font-size: 25px"
+                ></i>
+              </div>
             </div>
-            <div class="bookmark">
-              <i
-                class="far fa-bookmark"
-                style="color: white; font-size: 25px"
-              ></i>
+            <div class="category-btn">
+              <a
+                class="post-category"
+                :style="{ backgroundColor: movie.color }"
+                href="catagory.html"
+                >{{ movie.category }}</a
+              >
             </div>
-          </div>
-          <div class="category-btn">
-            <a
-              class="post-category"
-              :style="{ backgroundColor: movie.color }"
-              href="catagory.html"
-              >{{ movie.category }}</a
-            >
-          </div>
-          <div class="post-title">
-            <h2>{{ movie.title }}</h2>
-          </div>
-          <div class="post-author-section">
-            <div class="play-text">
-              <i class="fas fa-video" style="color: white"></i> {{ movie.type }}
+            <div class="post-title">
+              <h2>{{ movie.title }}</h2>
             </div>
-            <div class="bookmark-text">
-              <i class="fas fa-clock" style="color: white"></i> {{ movie.time }}
+            <div class="post-author-section">
+              <div class="play-text">
+                <i class="fas fa-video" style="color: white"></i>
+                {{ movie.type }}
+              </div>
+              <div class="bookmark-text">
+                <i class="fas fa-clock" style="color: white"></i>
+                {{ movie.time }}
+              </div>
+              <div class="play-text">
+                <i class="fas far fa-calendar-alt" style="color: white"></i>
+                {{ movie.year }}
+              </div>
+              <div class="play-text">
+                <i class="fas far fa-user" style="color: white"></i>
+                {{ movie.age }} <b>+</b>
+              </div>
             </div>
-            <div class="play-text">
-              <i class="fas far fa-calendar-alt" style="color: white"></i>
-              {{ movie.year }}
-            </div>
-            <div class="play-text">
-              <i class="fas far fa-user" style="color: white"></i>
-              {{ movie.age }} <b>+</b>
-            </div>
-          </div>
-          <div class="color-overlay"></div></div
+            <div class="color-overlay"></div></div></router-link
       ></swiper-slide>
     </swiper>
   </div>
