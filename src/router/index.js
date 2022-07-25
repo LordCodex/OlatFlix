@@ -9,16 +9,16 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/play",
+    path: "/play/:id",
     name: "Play Movie",
     component: PlayView,
   },
-  {
-    path: "/play/:id",
-    name: "User",
-    component: () => import("../views/PlayView.vue"),
-    props: true,
-  },
+  // {
+  //   path: "/play/:id",
+  //   name: "User",
+  //   component: () => import("../views/PlayView.vue"),
+  //   props: true,
+  // },
   {
     path: "/:catchAll(.*)",
     name: "NotFound",

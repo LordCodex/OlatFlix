@@ -14,9 +14,10 @@
         <router-link
           :to="{
             name: 'Play Movie',
-            params: { id: movie.id, username: 'eduardo' },
+            params: { id: movie.id },
           }"
         >
+          <router-view></router-view>
           <div
             class="swipe-container"
             :style="{ backgroundImage: `url(${movie.img})` }"
