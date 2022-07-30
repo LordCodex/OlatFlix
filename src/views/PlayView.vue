@@ -1,15 +1,27 @@
 <template>
   <div v-if="movies">
-    <h1>hey {{ this.id }}</h1>
     <div v-for="move of movies" :key="move.id">
-      <h1>{{ move.title }}</h1>
+      <h1>Title: {{ move.title }}</h1>
       <p>Synopsis: {{ move.synopsis }}</p>
       <!-- <div class="video_container">
         <video v-bind:src="move.videolink" id="video"></video>
       </div> -->
     </div>
   </div>
-  <div v-else>Loading ....</div>
+  <div
+    v-else
+    style="
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    "
+  >
+    <img
+      src="https://c.tenor.com/wfEN4Vd_GYsAAAAC/loading.gif"
+      style="width: 20%"
+    />
+  </div>
 </template>
 
 <script>

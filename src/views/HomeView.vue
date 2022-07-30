@@ -1,12 +1,13 @@
 <template>
-  <div class="home"></div>
-  <NavBar />
-  <div class="body-wi">
-    <div class="date__section">
-      <h3>Latest Movie</h3>
-      <p>{{ currentDate() }}</p>
+  <div class="home">
+    <NavBar />
+    <div class="body-wi">
+      <div class="date__section">
+        <h3>Latest Movie</h3>
+        <p>{{ currentDate() }}</p>
+      </div>
+      <SliderMenu />
     </div>
-    <SliderMenu />
   </div>
 </template>
 
