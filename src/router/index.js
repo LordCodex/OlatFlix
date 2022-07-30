@@ -2,10 +2,17 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import PlayView from "../views/PlayView.vue";
+import OnboardView from "../views/OnboardView.vue";
 import LoginView from "../views/LoginView.vue";
+
 
 const routes = [{
     path: "/",
+    name: "Onboard",
+    component: OnboardView,
+},
+{
+    path: "/login",
     name: "Login",
     component: LoginView,
 },
