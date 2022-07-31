@@ -7,6 +7,7 @@
         <p>{{ currentDate() }}</p>
       </div>
       <SliderMenu />
+      <CategoryMenu />
     </div>
   </div>
 </template>
@@ -14,11 +15,13 @@
 <script>
 import NavBar from "../components/NavBar.vue";
 import SliderMenu from "../components/SliderMenu.vue";
+import CategoryMenu from "../components/CategoryMenu.vue";
 export default {
   name: "HomeView",
   components: {
     NavBar,
     SliderMenu,
+    CategoryMenu,
   },
   methods: {
     currentDate() {

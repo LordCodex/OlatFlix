@@ -5,32 +5,16 @@
       <div class="categories">
         <div
           class="category-box"
-          style="
-            background: url('https://bestmoviecast.com/wp-content/uploads/2019/11/Tune-in-for-Love.jpg');
-          "
+          v-for="category of categories"
+          :key="category.id"
+          :style="{ backgroundImage: `url(${category.img})` }"
         >
           <div class="category-btn">
             <a
               class="post-category"
-              :style="{ backgroundColor: yellow }"
+              style="color: white"
               href="catagory.html"
-              >hey</a
-            >
-          </div>
-        </div>
-
-        <div
-          class="category-box"
-          style="
-            background: url('https://bestmoviecast.com/wp-content/uploads/2019/11/Tune-in-for-Love.jpg');
-          "
-        >
-          <div class="category-btn">
-            <a
-              class="post-category"
-              :style="{ backgroundColor: yellow }"
-              href="catagory.html"
-              >hey</a
+              >{{ category.title }}</a
             >
           </div>
         </div>
@@ -57,18 +41,18 @@ export default {
   },
   data() {
     return {
-      movies: [],
+      categories: [],
       errors: [],
     };
   },
 
-  // Fetches movies when the component is created.
+  // Fetches category when the component is created.
   async created() {
     try {
       const response = await axios.get(
-        `https://olatflix.funaabite.xyz/api/v1/featured/yes`
+        `https://olatflix.funaabite.xyz/api/v1/category`
       );
-      this.movies = response.data;
+      this.categories = response.data;
     } catch (e) {
       this.errors.push(e);
     }
@@ -87,8 +71,8 @@ export default {
 }
 .category-section {
   margin-top: 1em;
-  padding: 1em;
-  background: url("https://media.istockphoto.com/photos/water-drops-pattern-on-black-background-picture-id1218081339?k=20&m=1218081339&s=612x612&w=0&h=oMNcvpntEeNrFA8UvpD5dybXpyBOsedx2_9L-RtElfY=");
+  padding: 1em 0;
+  background: green;
   display: flex;
   align-items: center;
 }
@@ -120,9 +104,16 @@ export default {
 .categories {
   display: flex;
   gap: 1em;
+  overflow-x: auto;
+}
+.categories::-webkit-scrollbar {
+  width: 0;
 }
 .category-box {
   padding: 2.5em;
   border-radius: 15px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 </style>

@@ -50,7 +50,7 @@ export default {
   display: inline;
 }
 header {
-  background-color: black;
+  background-color: green;
   z-index: 3;
 }
 h2 {
@@ -78,7 +78,7 @@ ul {
   left: 0;
   width: 60%;
   height: 100vh;
-  background-color: black;
+  background-color: green;
   padding: 3em 0;
   color: white;
   animation: myAnim 1s ease 0s 1 normal forwards;
